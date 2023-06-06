@@ -7,13 +7,11 @@
 `define CPU_WIDTH 32 // rv32
 
 // instruction memory
-`define INST_MEM_ADDR_DEPTH 1024
-`define INST_MEM_ADDR_WIDTH 10 // 2^10 = 1024
+`define INST_MEM_ADDR_DEPTH 65536
+`define INST_MEM_ADDR_WIDTH 16 // 2^16 = 65536
 `define REG_WIDTH 32
 `define REG_ADDR_WIDTH 5
 `define INST_WIDTH 32
-`define INST_MEM_ADDR_DEPTH 1024
-`define INST_MEM_ADDR_WIDTH 10
 
 
 // inst

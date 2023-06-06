@@ -1,10 +1,14 @@
-lui a1 1000
-lui a2 123
-xor a0 a1 a2
-or a0 a1 a2
-and a0 a1 a2
-sll a0 a1 a2
-srl a0 a1 a2
-sra a0 a1 a2
-slt a0 a1 a2
-sltu a0 a1 a2
+addi a1 zero 3
+addi a2 zero 14
+addi a0 a1 100
+xori a0 a1 2
+ori a0 a1 2
+andi a0 a1 2
+slli a0 a1 2
+srli a0 a1 2
+addi a1 zero -1
+srai a0 a1 2
+srli a0 a1 2
+slti a0 a1 4
+addi a1 zero 3
+slti a0 a1 4

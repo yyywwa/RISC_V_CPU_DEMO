@@ -25,7 +25,7 @@ module reg_file (
   end
 
   always @(*) begin
-      reg_r_data1 = all_reg[reg_r_addr1[`REG_ADDR_WIDTH-1:0]];
-      reg_r_data2 = all_reg[reg_r_addr2[`REG_ADDR_WIDTH-1:0]];
+      reg_r_data1 <= all_reg[reg_r_addr1[`REG_ADDR_WIDTH-1:0]];
+      reg_r_data2 <= all_reg[reg_r_addr2[`REG_ADDR_WIDTH-1:0]];
   end
 endmodule

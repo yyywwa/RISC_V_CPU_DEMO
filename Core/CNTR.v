@@ -70,16 +70,16 @@ module ctrl (
             alu_op <= `ALU_XOR;
           end
           `INST_OR: begin
-            alu_op <= `ALU_OR; 
+            alu_op <= `ALU_OR;
           end
           `INST_AND: begin
-            alu_op <= `ALU_AND;  
+            alu_op <= `ALU_AND;
           end
           `INST_SLL: begin
             alu_op <= `ALU_SLL;
           end
           `INST_SRL_SRA: begin
-            alu_op <= (funct7 == `FUNCT7_INST_SRL)?`ALU_SRL:`ALU_SRA;
+            alu_op <= (funct7 == `FUNCT7_INST_SRL) ? `ALU_SRL : `ALU_SRA;
           end
           `INST_SLT: begin
             alu_op <= `ALU_SLT;
@@ -87,6 +87,40 @@ module ctrl (
           `INST_SLTU: begin
             alu_op <= `ALU_SLTU;
           end
+        endcase
+      end
+      `INST_TYPE_I: begin
+        reg_wen <= 1'b1;
+        alu_src_sel <= `ALU_SRC_IMM;
+        reg_w_addr <= rd;
+        reg_r_addr1 <= rs1;
+        imm_gen_op <= `IMM_GEN_I;
+        case (funct3)
+          `INST_ADDI: begin
+            alu_op <= `ALU_ADD;
+          end
+          `INST_XORI: begin
+            alu_op <= `ALU_XOR;
+          end
+          `INST_ORI: begin
+            alu_op <= `ALU_OR;
+          end
+          `INST_ANDI: begin
+            alu_op <= `ALU_AND;
+          end
+          `INST_SLLI: begin
+            alu_op <= `INST_SLL;
+          end
+          `INST_SRLI_SRAI: begin
+            alu_op <= `ALU_SRL;
+          end
+          `INST_SLTI: begin
+            alu_op <= `ALU_SLT;
+          end
+          `INST_SLTIU: begin
+            alu_op <= `ALU_SLTU; 
+          end
+
         endcase
       end
     endcase
